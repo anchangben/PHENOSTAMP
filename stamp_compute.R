@@ -1,5 +1,5 @@
 ## This file has implemented the methods to run a ccast tree clustering
-source("./ccast_visualise.R")
+source("./stamp_visualise.R")
 
 load_dataset <- function(filename, patient, colid=NULL, coln=NULL, rown=NULL, transformlogic=FALSE, asinhp=1,
                          subanalysis=TRUE, subsamplesize=NULL, colid_proteins=NULL, coln_proteins=NULL){

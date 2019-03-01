@@ -1,5 +1,5 @@
 
-source("ccast_compute.R")
+source("stamp_compute.R")
 
 ## main
 
