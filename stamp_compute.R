@@ -416,10 +416,15 @@ maptsne<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./ou
     if (is.null(window)){
         window = c(min(Y1)-5, max(Y1)+5, min(Y2)-5, max(Y2)+5)
     }
+    dir.create(paste(getwd(),outputDir,sample,sep="/"))
+
     
     sample_pred=cbind(Y1=pr.nn11,Y2=pr.nn22)
     colnames(sample_pred)<-c("Y1","Y2")
     save(sample_pred,file=paste(outputDir, "/", sample,".rda",sep=""))
+    
+    curr_dir = getwd()
+    setwd(paste(getwd(),outputDir,sample,sep="/"))
     ccast_tsne_plot2b(sample_pred[,1],sample_pred[,2],vor,file1=file1,sample=sample, window=window)
     
     x=sample_pred[,1]
@@ -431,10 +436,6 @@ maptsne<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./ou
     }
     colnames(dat)=antibody
     
-    dir.create(paste(getwd(),outputDir,sample,sep="/"))
-
-    curr_dir = getwd()
-    setwd(paste(getwd(),outputDir,sample,sep="/"))
     
     if (!is.null(antibody)){
         for ( r in 1:length(antibody)) {
@@ -446,7 +447,7 @@ maptsne<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./ou
             colvar <- asinh(z)
             scatter2D(x,y,colvar=colvar,pch=20,cex=0.4,main=antibody[r],colkey = FALSE, xlim=window[1:2], ylim=window[3:4])
             
-            plot(vor,add=TRUE,lwd=2)
+            plot(vor,add=TRUE,lwd=2, wlines="tess", wpoints="none", lty=1)
             ## }
             dev.off();
         }
@@ -474,8 +475,11 @@ if(length(points_to_add) > 0){
     x1 = c(x1, points_to_add[[1]])
     y1 = c(y1, points_to_add[[2]])
 }
-vm<-voronoi.mosaic(x1,y1, duplicate="remove")
-return(vm)
+
+seeds = as.matrix(seeds)
+
+z = deldir(seeds[, 1], seeds[, 2], rw=c(min(ds[, 1]), max(ds[, 1]), min(ds[, 2]), max(ds[, 2])))
+return(z)
 }
 
 ccast_tree_analyze_and_clean <- function(tree,DD, s.save, outputDir, filename="Heatmaps_Homogeneous_cells%03d.tiff") {
