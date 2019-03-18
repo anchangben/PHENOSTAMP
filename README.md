@@ -13,6 +13,8 @@ The code needed to generate the results in the paper are accessible using the ma
 A complete installation tool is available. All you have to do is run :
 ```{R}
 source("setup.R")
+followed by 
+source("main.R")
 ```
 
 The complete installation script can be long to run (between half an hour and an hour), but is complete.
