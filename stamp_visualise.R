@@ -1601,7 +1601,7 @@ ccast_tsne_plot2b <-function(x,y,test,file1="Projection T-SNE plots2.tiff",sampl
     require(plot3D)
    
     contour2D(z=xydens$z,x=xydens$x,y=xydens$y, add=TRUE, lwd = 2, colkey = TRUE)
-    plot(test,add=TRUE, wpoints="none", wlines="tess", lty=1)
+    plot(test,add=TRUE, wpoints="none", wlines="tess", lwd=2)
     dev.off();
     
 }
