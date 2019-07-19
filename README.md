@@ -15,8 +15,8 @@ A complete installation tool is available. All you have to do is run :
 source("setup.R")
 followed by 
 source("main.R") to run the complete analysis.
-If you have a new EMT data already as an r object and you want to project on the map from Karacosta et al. 2019,
-use project.R for this kind of analysis.
 ```
-
 The complete installation script can be long to run (between half an hour and an hour), but is complete.
+
+If you have a new EMT data already processed as an r object and you want to project on the map from Karacosta et al. 2019,
+use "project.R" for this analysis.
