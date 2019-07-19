@@ -36,7 +36,7 @@ maptsne(tsnedat,asinhp=NULL,newdat=dataset,newdat2,antibody1,nn=nn1,outputDir='.
 
 ### plot EMT map for each time ##
 for (time in unique(Timepoint)){
-  maptsne(tsnedat[newdat2[, "Timepoint"] == time, ],
+  maptsne(tsnedat,
           asinhp=NULL,newdat[newdat2[, "Timepoint"] == time, ],
           newdat2[newdat2[, "Timepoint"] == time, ],NULL,
           nn=nn1,outputDir='./output', vor=vor,file1=paste("EMT_timecourse_", time, ".tiff"),
