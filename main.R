@@ -3,7 +3,7 @@ source("stamp_compute.R")
 
 ## main
 
-libs <- c( "graph", "fastcluster", "party",  
+libs <- c("graph", "fastcluster", "party",  
           "plot3D", "MASS", "RColorBrewer", "flowCore", "cluster",
           "plotly", "bigvis", "tripack", "deldir", "sp", "Rtsne")
 
