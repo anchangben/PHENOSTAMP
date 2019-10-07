@@ -9,6 +9,7 @@ It contains a dataset representing the protein expression levels for cells under
 The codes needed to generate the results from new unprocessed data as well as results in the paper are accessible using the main.r script provided.
 
 ## Installation
+PHENOSTAMP relies on R (>= 3.5.0) and other R libraries (See main.R). The current implementation below runs on Mac OS X 10.7 and above operating systems.
 
 A complete installation tool is available. All you have to do is run :
 ```{R}
