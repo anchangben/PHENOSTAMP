@@ -12,8 +12,8 @@ lapply(libs, library, character.only = TRUE)
 outdir <- "./output/"
 dir.create(outdir)
 
-load("data/newdat.rdata")
-load("data/newdat2.rdata")
+load("data/newdat_8clusters.rdata")
+load("data/newdat2_8clusters.rdata")
 dataset = asinh(newdat)
 
 ##load tsne output (tsnedat)
@@ -24,9 +24,7 @@ load("data/tsnedat.rdata")
 load("data/groups.rdata")
 load("data/vor.rdata")
 load("data/nn1.rdata")
-#targetclust=c(1, 2, 3, 4, 6, 7, 11, 13)
-#s11=which(newdat2[,53] %in% targetclust)
-#newdat3=newdat2[s11,]
+
 Timepoint <- newdat2[, "Timepoint"]
 antibody1=colnames(newdat2)
 
