@@ -1,8 +1,6 @@
 install.packages("devtools")
 library(devtools)
 source("https://bioconductor.org/biocLite.R")
-#####install_github("nolanlab/Rclusterpp")
-####install_github("nolanlab/spade")
 biocLite("graph")
 install.packages("fastcluster")
 install.packages("party")
