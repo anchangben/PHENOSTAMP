@@ -6,7 +6,7 @@ It contains a dataset representing the protein expression levels for cells under
 + newdat.rdata contains 6 markers selected for their relevance in the EMT process
 + newdat2.rdata contains the whole raw dataset with many more markers
 
-The code needed to generate the results from new data and results in the paper are accessible using the main.r script provided.
+The codes needed to generate the results from new unprocessed data as well as results in the paper are accessible using the main.r script provided.
 
 ## Installation
 
