@@ -1,4 +1,4 @@
-# STAMP
+# PHENOSTAMP
 
 This repository contains the code for analyzing single cell data using PHENOtypic STAte MaP (PHENOSTAMP) algorithm (Karacosta et al. accepted by Nature Communication 2019). This algorithm combines the Clustering Classification and sorting Tree(CCAST) algorithm (Anchang et al. 2014) with an optimal 2D visualization of projected single-cell data using a neural network.
 
