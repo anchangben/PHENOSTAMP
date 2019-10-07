@@ -17,7 +17,7 @@ load("data/newdat2_8clusters.rdata")
 dataset = asinh(newdat)
 
 ##load tsne output (tsnedat)
-##load group labels (groups)
+##load group or cluster labels (groups)
 ##load voronoi boundaries (vor)
 ## load neural network (nn1)
 load("data/tsnedat.rdata")
