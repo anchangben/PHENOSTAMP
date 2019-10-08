@@ -447,7 +447,8 @@ maptsne<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./ou
             colvar <- asinh(z)
             scatter2D(x,y,colvar=colvar,pch=20,cex=0.4,main=antibody[r],colkey = FALSE, xlim=window[1:2], ylim=window[3:4])
             
-            plot(vor,add=TRUE,lwd=2)
+            ###plot(vor,add=TRUE,lwd=2)
+            plot(vor,add=TRUE, lwd=2,wl='tess',wp='n')
             ## }
             dev.off();
         }
