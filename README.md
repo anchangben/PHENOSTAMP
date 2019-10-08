@@ -17,7 +17,7 @@ source("setup.R")
 followed by 
 source("main.R") to run the complete analysis.
 ```
-The complete installation script can be long to run (between half an hour and an hour), but is complete.
+The complete installation script can be long to run. 
 
 If you have a new EMT data already processed as a data matrix r object and you want to project on the map from Karacosta et al. 2019, use code from "project.R" instead.
 
