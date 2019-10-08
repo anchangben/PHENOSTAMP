@@ -459,6 +459,74 @@ maptsne<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./ou
     
 }
 
+maptsne2<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./output', file1="Sample.tiff",sample="Sample", window=NULL) {
+    Y1=tsnedat[,1]
+    Y2=tsnedat[,2]
+    if (!(is.null(asinhp))) {
+        Dall=asinh(newdat/asinhp)
+    }else{
+        Dall=newdat
+    }
+    
+    data=as.data.frame(Dall)
+    maxs <- apply(data, 2, max)
+    mins <- apply(data, 2, min)
+    
+    scaled <- as.data.frame(scale(data, center = mins, scale = maxs - mins))
+    
+    nnet.predict=predict(nn, scaled)
+    pr.nn1 <- nnet.predict[,1]
+    pr.nn2 <- nnet.predict[,2]
+    
+    pr.nn11 <- pr.nn1*(max(Y1)-min(Y1))+min(Y1)
+    pr.nn22 <- pr.nn2*(max(Y2)-min(Y2))+min(Y2)
+    
+    if (is.null(window)){
+        window = c(min(Y1)-5, max(Y1)+5, min(Y2)-5, max(Y2)+5)
+    }
+    dir.create(paste(getwd(),outputDir,sample,sep="/"))
+
+    
+    sample_pred=cbind(Y1=pr.nn11,Y2=pr.nn22)
+    colnames(sample_pred)<-c("Y1","Y2")
+    save(sample_pred,file=paste(outputDir, "/", sample,".rda",sep=""))
+    
+    curr_dir = getwd()
+    setwd(paste(getwd(),outputDir,sample,sep="/"))
+    ccast_tsne_plot2b(sample_pred[,1],sample_pred[,2],vor,file1=file1,sample=sample, window=window)
+    
+    x=sample_pred[,1]
+    y=sample_pred[,2]
+    if (!(is.null(asinhp))) {
+        dat=asinh(newdat2/asinhp)
+    }else{
+        dat=newdat2
+    }
+    colnames(dat)=antibody
+    
+    
+    if (!is.null(antibody)){
+        for ( r in 1:length(antibody)) {
+            
+            tiff(paste(antibody[r],".tiff",sep=""), height = 15, width = 15,units = 'cm', pointsize = 6,compression = "lzw",type="cairo", res=300)
+            
+            ##if (!(r%in% c(46,47,48))){
+            z <- dat[,antibody[r]]
+            colvar <- asinh(z)
+            scatter2D(x,y,colvar=colvar,pch=20,cex=0.4,main=antibody[r],colkey = FALSE, xlim=window[1:2], ylim=window[3:4])
+            
+            plot(vor,add=TRUE,lwd=2)
+            ##plot.deldir(vor,add=TRUE, lwd=2,wl='tess',wp='n')
+            ## }
+            dev.off();
+        }
+
+    }
+
+    setwd(curr_dir)
+    
+}
+                                                    
 voronoi_mapping <- function(groups, ds, dbins, points_to_add=list()){
     targetclust = unique(groups)
     seeds = list()
