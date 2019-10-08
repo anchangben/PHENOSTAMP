@@ -1607,7 +1607,27 @@ ccast_tsne_plot2b <-function(x,y,test,file1="Projection T-SNE plots2.tiff",sampl
     
 }
 
+ccast_tsne_plot2c <-function(x,y,test,file1="Projection T-SNE plots2.tiff",sample="Tissue 2",window=NULL) {
+    ##tiff(file="CCAST Biaxial plots%d.tiff",width=360, height=360)
+    ##pdf(file="Biaxial T-SNE plots.pdf",width=10, height=10)
+    if (is.null(window)){
+        window = c(min(x)-2, max(x)+5, min(y)-2, max(y)+5)
+    }
+    tiff(file1, height = 10, width = 10,units = 'cm',pointsize = 6,compression = "lzw", type="cairo", res=300)
+    cex <- 1.8
+    xydens <- kde2d(x,y,n=100)
+    plot(x,y, main = sample,
+    xlab = "t-SNE1", ylab = "t-SNE2", ylim = window[3:4],xlim = window[1:2],
+    cex.axis = cex, cex.lab = cex, cex.main = cex,cex=0.2, pch=20,col="grey")
 
+    require(plot3D)
+   
+    contour2D(z=xydens$z,x=xydens$x,y=xydens$y, add=TRUE, lwd = 2, colkey = TRUE)
+    plot(test,add=TRUE, lwd=2)
+    ##plot(test,add=TRUE, lwd=2,wl='tess',wp='n')
+    dev.off();
+    
+}
 ##### KEEP
 ccast_biaxialplot2 <- function(optccastreeoutput,DD,ylabel,outputDir) {
     tiff(paste0(outputDir,"/Biaxial_tree_node_plots%03d.tiff"), height = 10, width = 10,units = 'cm', pointsize = 6,compression = "lzw",type="cairo", res=300)
