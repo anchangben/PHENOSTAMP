@@ -30,11 +30,11 @@ antibody1=colnames(newdat2)
 
 ### plot EMT map for complete data ##
 window = c(min(tsnedat[, 1])-5, max(tsnedat[, 1])+5, min(tsnedat[, 2])-5, max(tsnedat[, 2])+5)
-maptsne(tsnedat,asinhp=NULL,newdat=dataset,newdat2,antibody1,nn=nn1,outputDir='./output', vor=vor,file1="EMT timecourse data.tiff",sample="EMT timecourse data", window=window)
+maptsne2(tsnedat,asinhp=NULL,newdat=dataset,newdat2,antibody1,nn=nn1,outputDir='./output', vor=vor,file1="EMT timecourse data.tiff",sample="EMT timecourse data", window=window)
 
 ### plot EMT map for each time or condition ##
 for (time in unique(Timepoint)){
-  maptsne(tsnedat,
+  maptsne2(tsnedat,
           asinhp=NULL,newdat[newdat2[, "Timepoint"] == time, ],
           newdat2[newdat2[, "Timepoint"] == time, ],NULL,
           nn=nn1,outputDir='./output', vor=vor,file1=paste("EMT_timecourse_", time, ".tiff"),
