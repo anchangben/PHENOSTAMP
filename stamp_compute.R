@@ -493,7 +493,7 @@ maptsne2<-function (tsnedat,asinhp,newdat,newdat2,antibody,nn,vor,outputDir='./o
     
     curr_dir = getwd()
     setwd(paste(getwd(),outputDir,sample,sep="/"))
-    ccast_tsne_plot2b(sample_pred[,1],sample_pred[,2],vor,file1=file1,sample=sample, window=window)
+    ccast_tsne_plot2c(sample_pred[,1],sample_pred[,2],vor,file1=file1,sample=sample, window=window)
     
     x=sample_pred[,1]
     y=sample_pred[,2]
