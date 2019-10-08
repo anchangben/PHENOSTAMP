@@ -9,7 +9,7 @@ It contains a dataset representing the protein expression levels for cells under
 The codes needed to generate the results from new unprocessed data are accessible using the main.r script provided.
 
 ## Installation
-PHENOSTAMP relies on R (>= 3.5.0) and other R libraries (See main.R). The current implementation below runs on Mac OS X 10.7 and above operating systems. Instructions to setup the macOS toolchain for compiling used in the 3.5.* and above series of R  can be found in  https://thecoatlessprofessor.com/programming/cpp/r-compiler-tools-for-rcpp-on-macos/. A complete installation of PHENOSTAMP requires that all dependencies are loaded.
+PHENOSTAMP relies on R (>= 3.5.0) and other R libraries (See main.R). The current implementation below runs on Mac OS X 10.7 and above operating systems. Instructions to setup the macOS toolchain for compiling used in the 3.5.* and above series of R  can be found in  https://thecoatlessprofessor.com/programming/cpp/r-compiler-tools-for-rcpp-on-macos/. A complete installation of PHENOSTAMP requires that all dependencies are installed.
 
 A complete installation tool is available. All you have to do is run :
 ```{R}
