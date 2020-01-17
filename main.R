@@ -5,7 +5,7 @@ source("stamp_compute.R")
 
 libs <- c("graph", "fastcluster", "party",  
           "plot3D", "MASS", "RColorBrewer", "flowCore", "cluster",
-          "plotly", "bigvis", "tripack", "deldir", "sp", "Rtsne")
+          "plotly", "bigvis", "tripack", "deldir", "sp", "Rtsne","nnet")
 
 lapply(libs, library, character.only = TRUE)
 
