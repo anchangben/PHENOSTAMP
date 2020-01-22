@@ -17,9 +17,8 @@ source("setup.R")
 followed by 
 source("main.R") to run the complete analysis.
 ```
-The complete installation script can be long to run. 
 
-If you want to project data from Karacosta et al. 2019 or any new EMT data already processed as a data matrix r object on the map from Karacosta et al. 2019, use code from "project.R" instead.
+If you want to project data from Karacosta et al. 2019 or any new EMT data already processed as a data matrix r object on the map from Karacosta et al. 2019, use code from "project.R" instead. When you create the matrix with only EMT markers, the column names must be ordered as: E-Cadherin, Vimentin, CD44, CD24, Twist, MUC1. 
 
 ## Questions
 Any questions can be addressed to anb28636@gmail.com
